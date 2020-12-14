@@ -15,17 +15,20 @@ def clear():
     os.system(clear_string)
 
 def bar():
-    print('_______________________________')
+    print('_________________________________')
+
+def unit_input_bar():
+    print('________MEDIDA DE ENTRADA________')
 
 def menu_principal():
-    bar()
+    print('________SISTEMA DE MEDIDA________')
     print(' 1 - Conversor de comprimento')
     print(' 2 - Conversor de volume')
     print('\n 0 - Sair')
     bar()
 
 def menu_comprimento():
-    bar()
+    unit_input_bar()
     print(' 1 - Metro(m)')
     print(' 2 - Centímetro(cm)')
     print(' 3 - Quilômetro(km)')
@@ -35,7 +38,7 @@ def menu_comprimento():
     bar()
 
 def menu_volume():
-    bar()
+    unit_input_bar()
     print(' 1 - Litro(L)')
     print(' 2 - Mililitro(ml)')
     print(' 3 - Decilitro(dl)')
@@ -61,16 +64,8 @@ def fazer_conversao(data):
     getpass.getpass("")
     clear()
 
-def get_option():
-    _input = input('Entre com uma opção: ')
-    try:
-        response = int(_input)
-    except:
-        response = -1
-    return response
-
-def get_value():
-    _input = input('Digite o valor a ser convertido: ')
+def get_input(str):
+    _input = input(str)
     try:
         response = int(_input)
     except:
@@ -102,16 +97,16 @@ if __name__ == '__main__':
     hello()
     while opc1 != 0:
         menu_principal()
-        opc1 = get_option()
+        opc1 = get_input('Entre com uma opção: ')
         if opc1 == 1:
             obj["system"] = "length"
             clear()
             while opc2 != 0:
                 menu_comprimento()
-                opc2 = get_option()
+                opc2 = get_input('Entre com uma opção: ')
                 if opc2 in range(1,6):
                     obj["unit_of_measurement"] = length_inputs[opc2-1]
-                    obj["input"] = get_value()
+                    obj["input"] = get_input('Digite o valor a ser convertido: ')
                     fazer_conversao(obj)
                 elif opc2 != 0:
                     invalid_option()
@@ -121,10 +116,10 @@ if __name__ == '__main__':
             clear()
             while opc2 != 0:
                 menu_volume()
-                opc2 = get_option()
+                opc2 = get_input('Entre com uma opção: ')
                 if opc2 in range(1,5):
                     obj["unit_of_measurement"] = volume_inputs[opc2-1]
-                    obj["input"] = get_value()
+                    obj["input"] = get_input('Digite o valor a ser convertido: ')
                     fazer_conversao(obj)
                 elif opc2 != 0:
                     invalid_option()

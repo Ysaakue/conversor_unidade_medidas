@@ -21,35 +21,35 @@ while True:
     response = {}
     if data["system"] == "length":
         if data["unit_of_measurement"] == "meter":
-            dc = data["input"] * 10
+            dm = data["input"] * 10
             cm = data["input"] * 100
             km = data["input"] / 1000
             mm = data["input"] * 1000
-            response["msg"] = "{m}m é equivalente a {km}km, {dc}dc, {cm}cm ou {mm}mm.".format(m=data["input"],dc=dc,cm=cm,km=km,mm=mm)
+            response["msg"] = "{m}m é equivalente a {km}km, {dm}dm, {cm}cm ou {mm}mm.".format(m=data["input"],dm=dm,cm=cm,km=km,mm=mm)
         elif data["unit_of_measurement"] == "centimeter":
             mm = data["input"] * 10
-            dc = data["input"] / 10
+            dm = data["input"] / 10
             m = data["input"]  / 100
             km = data["input"] / 100000
-            response["msg"] = "{cm}cm é equivalente a {km}km, {dc}dc, {m}m ou {mm}mm.".format(cm=data["input"],dc=dc,m=m,km=km,mm=mm)
+            response["msg"] = "{cm}cm é equivalente a {km}km, {dm}dm, {m}m ou {mm}mm.".format(cm=data["input"],dm=dm,m=m,km=km,mm=mm)
         elif data["unit_of_measurement"] == "kilometer":
             m = data["input"]  * 1000
-            dc = data["input"] * 10000
+            dm = data["input"] * 10000
             cm = data["input"] * 100000
             mm = data["input"] * 1000000
-            response["msg"] = "{km}km é equivalente a  {dc}dc, {m}m, {cm}cm ou {mm}mm.".format(km=data["input"],dc=dc,m=m,cm=cm,mm=mm)
+            response["msg"] = "{km}km é equivalente a  {dm}dm, {m}m, {cm}cm ou {mm}mm.".format(km=data["input"],dm=dm,m=m,cm=cm,mm=mm)
         elif data["unit_of_measurement"] == "decimeter":
             m = data["input"]  / 10
             cm = data["input"] * 10
             mm = data["input"] * 100
             km = data["input"] / 10000
-            response["msg"] = "{dc}dc é equivalente a {km}km, {m}m, {cm}cm ou {mm}mm.".format(dc=data["input"],cm=cm,m=m,km=km,mm=mm)
+            response["msg"] = "{dm}dm é equivalente a {km}km, {m}m, {cm}cm ou {mm}mm.".format(dm=data["input"],cm=cm,m=m,km=km,mm=mm)
         elif data["unit_of_measurement"] == "millimeter":
             cm = data["input"] / 10
-            dc = data["input"] / 100
+            dm = data["input"] / 100
             m = data["input"]  / 1000
             km = data["input"] / 1000000
-            response["msg"] = "{mm}mm é equivalente a {km}km, {dc}dc, {m}m ou {cm}cm.".format(mm=data["input"],dc=dc,m=m,km=km,cm=cm)
+            response["msg"] = "{mm}mm é equivalente a {km}km, {dm}dm, {m}m ou {cm}cm.".format(mm=data["input"],dm=dm,m=m,km=km,cm=cm)
         else:
             response["msg"] = "a operação solicitada é invalidade, verifique seus dados e tente novamente."
     elif data["system"] == "volume":
